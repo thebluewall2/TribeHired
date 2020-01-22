@@ -1,7 +1,11 @@
 import { take, put, call } from 'redux-saga/effects';
 
+import Toast from 'react-native-simple-toast';
+
 import Actions from '../../Redux/Actions';
 import Types from '../../Redux/Types';
+
+import NavActions from '../../Navigation/NavActions';
 
 export function* watchGetPostDetails(api) {
     while (true) {
@@ -16,6 +20,10 @@ export function* handleGetPostDetails(api, postId) {
 
         if (response.ok && response.data) {
             yield put(Actions.postsGetDetailsSuccess(response.data));
+        } else {
+            Toast.show(response.problem);
+
+            NavActions.navBack();
         }
     } catch (error) {
         console.log(error);

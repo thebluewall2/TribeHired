@@ -3,7 +3,7 @@ import apisauce from 'apisauce';
 const create = (baseURL = 'https://jsonplaceholder.typicode.com') => {
     const api = apisauce.create({
         baseURL,
-        timeout: 10000,
+        timeout: 5000,
     });
 
     const getPosts = () =>
