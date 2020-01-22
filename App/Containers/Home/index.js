@@ -18,6 +18,7 @@ class Posts extends PureComponent {
         const { getPostDetails, navigation } = this.props;
 
         getPostDetails(id);
+        navigation.navigate('PostDetails');
     }
 
     _renderSeparator = () => {

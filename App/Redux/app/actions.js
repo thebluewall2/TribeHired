@@ -27,10 +27,27 @@ const postsGetDetailsSuccess = (postDetails) => {
     };
 };
 
+const postsGetCommentsAttempt = (postId) => {
+    return {
+        type: Types.POSTS_GET_COMMENTS_ATTEMPT,
+        postId,
+    };
+};
+
+const postsGetCommentsSuccess = (comments) => {
+    return {
+        type: Types.POSTS_GET_COMMENTS_SUCCESS,
+        comments
+    };
+};
+
 export default {
     postsGetAttempt,
     postsGetSuccess,
 
     postsGetDetailsAttempt,
     postsGetDetailsSuccess,
+
+    postsGetCommentsAttempt,
+    postsGetCommentsSuccess,
 };

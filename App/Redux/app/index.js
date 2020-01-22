@@ -10,5 +10,8 @@ export default {
 
         [Types.POSTS_GET_DETAILS_ATTEMPT]: Reducers.getDetailsAttempt,
         [Types.POSTS_GET_DETAILS_SUCCESS]: Reducers.getDetailsSuccess,
+
+        [Types.POSTS_GET_COMMENTS_ATTEMPT]: Reducers.getCommentsAttempt,
+        [Types.POSTS_GET_COMMENTS_SUCCESS]: Reducers.getCommentsSuccess,
     })
 };

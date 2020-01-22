@@ -5,6 +5,8 @@ const INITIAL_STATE = Immutable({
     posts: [],
     loadingPostDetails: false,
     postDetails: {},
+    loadingComments: false,
+    comments: [],
 });
 
 const getAttempt = (state) => state.merge({
@@ -25,6 +27,15 @@ const getDetailsSuccess = (state, action) => state.merge({
     postDetails: action.postDetails,
 });
 
+const getCommentsAttempt = (state) => state.merge({
+    loadingComments: true,
+});
+
+const getCommentsSuccess = (state, action) => state.merge({
+    loadingComments: false,
+    comments: action.comments,
+});
+
 export default {
     INITIAL_STATE,
 
@@ -33,4 +44,7 @@ export default {
 
     getDetailsAttempt,
     getDetailsSuccess,
+
+    getCommentsAttempt,
+    getCommentsSuccess,
 };
