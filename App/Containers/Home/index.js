@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 import Actions from '../../Redux/Actions';
 import Selectors from '../../Redux/Selectors';
 
+import styles from './styles';
+
 class Posts extends PureComponent {
     componentDidMount() {
         const { getPosts } = this.props;
@@ -13,9 +15,10 @@ class Posts extends PureComponent {
     }
 
     _onPostClicked = (id) => {
-        
+        console.log(id);
+        console.log(this.props);
     }
-    
+
     _renderSeparator = () => {
         return (
             <View style={{ height: 1, backgroundColor: 'gray' }} />
@@ -26,22 +29,29 @@ class Posts extends PureComponent {
         return (
             <TouchableOpacity
                 onPress={() => this._onPostClicked(item.id)}
+                style={styles.postCard}
             >
-                <Text>{item.title}</Text>
+                <Text
+                    style={styles.postText}
+                >
+                    {item.title}
+                </Text>
             </TouchableOpacity>
         );
     }
 
     render() {
         const { posts } = this.props;
-        console.log(posts);
+
         return (
             <FlatList
                 data={posts}
                 renderItem={this._renderPost}
                 ItemSeparatorComponent={this._renderSeparator}
+                keyExtractor={item => item.id.toString()}
+                style={styles.mainContainer}
             />
-        );  
+        );
     }
 }
 

@@ -2,9 +2,9 @@ import { fork } from 'redux-saga/effects';
 
 import { watchGetPosts } from './getPosts';
 
-export default () => {
+export default (api) => {
     function* rootSaga() {
-        yield fork(watchGetPosts);
+        yield fork(watchGetPosts, api);
     }
 
     return {
