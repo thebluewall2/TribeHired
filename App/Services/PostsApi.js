@@ -9,8 +9,12 @@ const create = (baseURL = 'https://jsonplaceholder.typicode.com') => {
     const getPosts = () =>
         api.get('/posts');
 
+    const getPostDetails = (postId) =>
+        api.get(`/posts/${postId}`);
+
     return {
         getPosts,
+        getPostDetails,
     };
 };
 

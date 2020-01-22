@@ -15,8 +15,9 @@ class Posts extends PureComponent {
     }
 
     _onPostClicked = (id) => {
-        console.log(id);
-        console.log(this.props);
+        const { getPostDetails, navigation } = this.props;
+
+        getPostDetails(id);
     }
 
     _renderSeparator = () => {
@@ -41,10 +42,12 @@ class Posts extends PureComponent {
     }
 
     render() {
-        const { posts } = this.props;
+        const { loading, posts, getPosts } = this.props;
 
         return (
             <FlatList
+                refreshing={loading}
+                onRefresh={getPosts}
                 data={posts}
                 renderItem={this._renderPost}
                 ItemSeparatorComponent={this._renderSeparator}
@@ -57,6 +60,7 @@ class Posts extends PureComponent {
 
 const mapStateToProps = (state) => {
     return {
+        loading: Selectors.getPostsIsLoading(state),
         posts: Selectors.getPosts(state),
     };
 };
@@ -65,6 +69,8 @@ const mapDispatchToProps = (dispatch) => {
     return {
         getPosts: () =>
             dispatch(Actions.postsGetAttempt()),
+        getPostDetails: (postId) =>
+            dispatch(Actions.postsGetDetailsAttempt(postId)),
     };
 };
 
