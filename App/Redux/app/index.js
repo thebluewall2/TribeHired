@@ -13,5 +13,7 @@ export default {
 
         [Types.POSTS_GET_COMMENTS_ATTEMPT]: Reducers.getCommentsAttempt,
         [Types.POSTS_GET_COMMENTS_SUCCESS]: Reducers.getCommentsSuccess,
+
+        [Types.POSTS_CLEAR_POST_DETAILS]: Reducers.clearPostDetails,
     })
 };

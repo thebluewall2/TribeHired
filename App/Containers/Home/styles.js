@@ -23,5 +23,14 @@ export default StyleSheet.create({
     },
     postDetailsBody: {
         marginTop: 10,
+    },
+    searchBar: {
+        marginTop: 10,
+        padding: 10,
+        borderRadius: 15,
+        width: '80%',
+        borderColor: 'gray',
+        borderWidth: 1,
+        alignSelf: 'center'
     }
 })

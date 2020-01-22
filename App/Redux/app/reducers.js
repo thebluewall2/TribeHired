@@ -36,6 +36,11 @@ const getCommentsSuccess = (state, action) => state.merge({
     comments: action.comments,
 });
 
+const clearPostDetails = (state) => state.merge({
+    postDetails: {},
+    comments: [],
+});
+
 export default {
     INITIAL_STATE,
 
@@ -47,4 +52,6 @@ export default {
 
     getCommentsAttempt,
     getCommentsSuccess,
+
+    clearPostDetails,
 };

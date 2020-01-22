@@ -41,6 +41,12 @@ const postsGetCommentsSuccess = (comments) => {
     };
 };
 
+const postsClearPostDetails = () => {
+    return {
+        type: Types.POSTS_CLEAR_POST_DETAILS
+    };
+};
+
 export default {
     postsGetAttempt,
     postsGetSuccess,
@@ -50,4 +56,6 @@ export default {
 
     postsGetCommentsAttempt,
     postsGetCommentsSuccess,
+
+    postsClearPostDetails,
 };
