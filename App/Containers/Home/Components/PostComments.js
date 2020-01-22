@@ -1,40 +1,26 @@
-import React, { PureComponent } from 'react';
-import { FlatList, Text } from 'react-native';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import React from 'react';
+import { Text, View } from 'react-native';
 
-import Actions from '../../../Redux/Actions';
-import Selectors from '../../../Redux/Selectors';
+import styles from './styles';
 
-class PostComments extends PureComponent {
-    componentDidMount() {
-        const { postId, getComments } = this.props;
+const PostComments = ({ comment }) => {
+    const { email, name, body } = comment;
 
-        getComments(postId);
-    }
+    return (
+        <View style={styles.commentContainer}>
+            <Text style={styles.commentNameText}>
+                {name}
+            </Text>
 
-    render() {
-        return (
-            false
-        );
-    }
+            <Text style={styles.commentEmailText}>
+                {email}
+            </Text>
+
+            <Text style={styles.commentBodyText}>
+                {body}
+            </Text>
+        </View>
+    )
 }
 
-const mapStateToProps = (state) => {
-    return {
-
-    };
-};
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        getComments: (postId) =>
-            dispatch(Actions.postsGetCommentsAttempt(postId)),
-    };
-};
-
-PostComments.propTypes = {
-    postId: PropTypes.number.isRequired,
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(PostComments);
+export default PostComments;

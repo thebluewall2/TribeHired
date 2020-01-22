@@ -14,7 +14,9 @@ export function* handleGetComments(api, postId) {
     try {
         const response = yield call(api.getPostComments, postId);
 
-        console.log(response);
+        if (response.ok) {
+            yield put(Actions.postsGetCommentsSuccess(response.data));
+        }
     } catch (error) {
         console.log(error)
     }

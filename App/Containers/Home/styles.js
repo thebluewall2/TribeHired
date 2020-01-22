@@ -14,9 +14,9 @@ export default StyleSheet.create({
         justifyContent: 'center',
     },
     postTitleAndBodyContainer: {
-        paddingBottom: 15,
+        paddingVertical: 15,
         borderBottomColor: 'gray',
-        borderBottomWidth: 1
+        borderBottomWidth: 2
     },
     postDetailsTitle: {
         fontWeight: '600',

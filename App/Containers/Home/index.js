@@ -15,9 +15,10 @@ class Posts extends PureComponent {
     }
 
     _onPostClicked = (id) => {
-        const { getPostDetails, navigation } = this.props;
+        const { getPostDetails, getPostComments, navigation } = this.props;
 
         getPostDetails(id);
+        getPostComments(id);
         navigation.navigate('PostDetails');
     }
 
@@ -72,6 +73,8 @@ const mapDispatchToProps = (dispatch) => {
             dispatch(Actions.postsGetAttempt()),
         getPostDetails: (postId) =>
             dispatch(Actions.postsGetDetailsAttempt(postId)),
+        getPostComments: (postId) =>
+            dispatch(Actions.postsGetCommentsAttempt(postId)),
     };
 };
 
