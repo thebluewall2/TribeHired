@@ -1,0 +1,4 @@
+export default {
+    POSTS_GET_ATTEMPT: 'POSTS_GET_ATTEMPT',
+    POSTS_GET_SUCCESS: 'POSTS_GET_SUCCESS',
+};
